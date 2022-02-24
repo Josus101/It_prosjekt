@@ -6,12 +6,8 @@
         <title>Hjemmeside</title>
     </head>
     <body>
-        <form action = "Profil.php" method = "post">
-            <input type = "submit" value = "Profil">
-        </form>
-        <form action = "Logged_out.php" method = "post">
-            <input type = "submit" value = "Log ut">
-        </form>
+        <p><a href="Profil.php>Profil</a></p>
+        <p><a href="Logged_out.php>Profil</a></p>
         <p>Her skal det komme en feed</p>
     </body>
 </html>
