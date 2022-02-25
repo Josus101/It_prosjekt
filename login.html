@@ -5,13 +5,17 @@
         <title>
             title
         </title>
+        <link rel="stylesheet" href="login_style.css">
     </head>
     <body>
         <form action = "authenticate.php" method = "post">
-            <input type = "text" id = "username" name = "username"> <br>
-            <input type = "password" id = "password" name = "password"> <br>
+            <h1>Logg Inn</h1>
+            <label for="username">Brukernavn</label>
+            <input type = "text" id = "username" name = "username" placeholder="Brukernavn"> <br>
+            <label for="password">Passord</label>
+            <input type = "password" id = "password" name = "password" placeholder="Passord"> <br>
             <input type = "submit" value = "Logg Inn">
+            <p> <a href="acinfo.html">Lag Bruker</a> </p>
         </form>
-        <p> <a href="acinfo.html">Lag Bruker</a> </p>
     </body>
 </html>

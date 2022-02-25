@@ -1,0 +1,31 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: slategray;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+    padding: 3%;
+    background-color: white;
+}
+
+form > * {
+    margin: 10px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
