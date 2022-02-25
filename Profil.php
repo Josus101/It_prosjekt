@@ -5,6 +5,7 @@
     <title>Profil</title>
 </head>
 <body>
+    <p><a href="MainPage.php"><button>MainPage</button></a></p>
     <form action="Dine_grupper.php">
         <input type="submit" value="Dine Grupper">
     </form>
