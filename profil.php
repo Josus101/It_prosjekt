@@ -5,10 +5,8 @@
     <title>Profil</title>
 </head>
 <body>
-    <p><a href="MainPage.php"><button>MainPage</button></a></p>
-    <form action="Dine_grupper.php">
-        <input type="submit" value="Dine Grupper">
-    </form>
+    <p><a href="main_page.php"><button>Main Page</button></a></p>
+    <p><a href="dine_grupper.php"><button>Dine Grupper</button></a></p>
     <br>
     <p>dette er aktivitetene du er meldt på:</p>
     <br>
