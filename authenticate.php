@@ -11,7 +11,7 @@
         $sqlserver   = "localhost";
         $sqlusername = "root";
         $sqlpassword = "";
-        $sqldatabase = "users";
+        $sqldatabase = "sosialt_nettverk";
 
         $conn = mysqli_connect($sqlserver, $sqlusername, $sqlpassword, $sqldatabase);
 
