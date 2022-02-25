@@ -6,7 +6,7 @@
         <title>Info Om aktivitet <!-- skal bli til navnet på selve aktiviteten --> </title>
     </head>
     <body>
-        <p><a href="Profil.php"><button>Profil</button></a></p> 
+        <p><a href="profil.php"><button>Profil</button></a></p> 
         <h2>Navn på aktiviteten</h2>
         <p><em>Bilde av aktivitet eller någe</em></p>
         <p><strong>Sted:</strong> Mordi sitt hus</p>
