@@ -7,7 +7,7 @@
     </head>
     <body>
         <h2>Opprett aktivitet</h2>
-        <form action = "Skapelsen.php" method = "post">
+        <form action = "skapelsen.php" method = "post">
                 <label for = "tittel">Hva skal aktiviteten være?</label> <input id="tittel" name="tittel" type="text"> <br>
             <label for = "bilde">Velg bilde:</label> <!-- Bilde er ikke i databasen i dette eksakte øyeblikk -->
                 <input type = "file" id = "bilde" name = "bilde" accept="image/*"> <br>
