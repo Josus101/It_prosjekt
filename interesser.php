@@ -26,7 +26,7 @@ echo "Connected successfully";
         <title>Folk</title>
     </head>
     <body>
-        <form action = "suggestions.html" method = "post">  
+        <form action = "login.html" method = "post">  
             <?php
                 $sql_select = "SELECT navn FROM interesser";
 
