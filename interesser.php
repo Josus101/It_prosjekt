@@ -43,5 +43,7 @@ echo "Connected successfully";
 
                 mysqli_close($conn);
             ?>
+            <input type = "submit" value = "Neste">
+        </form>
     </body>
 </html>
