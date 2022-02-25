@@ -49,6 +49,7 @@ CREATE TABLE Interesser_user (
 -- aktiviteter
 CREATE TABLE Aktiviteter (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   navn varchar(255),
    public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
    sted varchar(255),
    tidspunkt datetime,
