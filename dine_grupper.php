@@ -5,7 +5,7 @@
     <title>Dine Grupper</title>
 </head>
 <body>
-    <p><a href="Profil.php"><button>Profil</button></a></p>
+    <p><a href="profil.php"><button>Profil</button></a></p>
     <p>gruppene dine:</p>
     <!--sessions for å vita group id-->
     <p><a href="http://localhost:8888/IT_projekt/Gruppe.php"><button>Gruppe 1</button></a></p>
