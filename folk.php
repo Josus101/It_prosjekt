@@ -22,7 +22,7 @@ echo "Connected successfully";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="folk_style.css">
     <title>Folk</title>
 </head>
 <body>
@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $sql_select);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    echo "<h2 id=\"nylige\">Nylige</h2>";
+    echo "<h2 id=\"nylige_h1\">Nylige</h2>";
     echo "<ul id=\"nylige_liste\">";
     while($row = mysqli_fetch_assoc($result)) {
         echo "<li>name:" . $row["name"] . "</li>";
@@ -52,6 +52,10 @@ if (mysqli_num_rows($result) > 0) {
 
 
 echo "<h2 id=\"dms\">DM's</h2>";
+
+    
+
+    
 
     mysqli_close($conn);
 ?>
