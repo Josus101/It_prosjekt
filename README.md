@@ -1,2 +1,0 @@
-# It_prosjekt
-shit
