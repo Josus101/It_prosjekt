@@ -24,19 +24,32 @@ CREATE TABLE Profile (
     alder INTEGER (120),
     kjønn INTEGER, 
     Fagområde VARCHAR(255),
-    interesser INTEGER UNSIGNED
+   --  interesser INTEGER UNSIGNED // Tror ikke at me trenge den her siden den e kobla opp te user_id
 );
+-- Kem e i hvilken gruppe
+CREATE TABLE Gruppe_users (
+   user_id INTEGER UNSIGNED, 
+   gruppe_id INTEGER UNSIGNED
+);
+
  -- grupper
 CREATE TABLE Grupper (
-   gruppe_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    name varchar(50),
    aktivitet varchar(255),
-   interesser INTEGER
+   interesser INTEGER,
+   universitet INTEGER UNSIGNED
+);
+
+-- Forbindelse for flere aktiviteter i ein gruppe
+CREATE TABLE Aktiviteter_Grupper (
+   gruppe_id INTEGER UNSIGNED,
+   aktivitet_id INTEGER UNSIGNED
 );
 
 --  interesser
 CREATE TABLE Interesser (
-   id INTEGER UNSIGNED PRIMARY KEY,
+   id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    navn varchar(100),
    beskrivelse varchar(255)
 );
@@ -49,7 +62,7 @@ CREATE TABLE Interesser_user (
 -- aktiviteter
 CREATE TABLE Aktiviteter (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-   navn varchar(255),
+   navn VARCHAR(255),
    public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
    sted varchar(255),
    tidspunkt datetime,
