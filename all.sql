@@ -43,7 +43,7 @@ CREATE TABLE Interesser (
 
 -- interesser koblet te user id
 CREATE TABLE Interesser_user (
-   user_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   user_id INTEGER UNSIGNED,
    interesser_id INTEGER
 );
 -- aktiviteter
