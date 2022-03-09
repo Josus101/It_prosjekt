@@ -35,7 +35,7 @@
 
 <?php
 
-function feed($id, $conn){
+function publicfeed($id, $conn){
     $sql_select="SELECT Aktiviteter.id AS Aktiv_id, Aktiviteter.navn AS Aktiv_navn 
                 FROM Aktiviteter, 
                      Grupper, 
@@ -47,6 +47,7 @@ function feed($id, $conn){
                 AND Interesser.id = Interesser_user.interesser_id 
                 AND Interesser_user.user_id = 1
                 AND Aktiviteter.public = 0
+
                 GROUP BY Aktiviteter.id
     ";
 
