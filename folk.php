@@ -17,6 +17,7 @@ if (!$conn) {
 }
 echo "Connected successfully";
 
+include 'nav.html';
 ?>
 <!DOCTYPE html>
 <html lang="en">
