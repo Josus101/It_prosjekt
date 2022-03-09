@@ -35,7 +35,7 @@ include 'nav.html';
 $sql_select = "SELECT user_2_id, profile.name AS name
 FROM folk_du_har_vert_med, profile
 WHERE folk_du_har_vert_med.user_1_id = $user_id
-AND profile.id = folk_du_har_vert_med.user_2_id";
+AND profile.user_id = folk_du_har_vert_med.user_2_id";
 
 $result = mysqli_query($conn, $sql_select);
 
