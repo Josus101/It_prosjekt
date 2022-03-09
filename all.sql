@@ -18,7 +18,7 @@ CREATE TABLE Folk_du_har_vert_med(
 -- profile
 CREATE TABLE Profile (
     user_id INTEGER UNSIGNED,
-    name VARCHAR(255),
+    navn VARCHAR(255),
     tlf INTEGER(8),
     universitet INTEGER UNSIGNED,
     alder INTEGER (120),
@@ -35,7 +35,7 @@ CREATE TABLE Gruppe_users (
  -- grupper
 CREATE TABLE Grupper (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-   name varchar(50),
+   navn varchar(50),
    aktivitet varchar(255),
    interesser INTEGER,
    universitet INTEGER UNSIGNED
