@@ -64,7 +64,7 @@ function publicfeed($id, $conn){
     }
 }
 
-feed($user_id, $conn);
+publicfeed($user_id, $conn);
 ?>
     </body>
 </html>
