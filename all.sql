@@ -22,7 +22,7 @@ CREATE TABLE Profile (
     tlf INTEGER(8),
     universitet INTEGER UNSIGNED,
     alder INTEGER (120),
-    kjønn INTEGER, 
+    kjonn INTEGER, 
     Fagområde VARCHAR(255),
    --  interesser INTEGER UNSIGNED // Tror ikke at me trenge den her siden den e kobla opp te user_id
 );
