@@ -74,12 +74,12 @@ function publicfeed($id, $conn){
     ";
     $result = mysqli_query($conn, $sql_select);
 
-    if (mysqli_num_rows($result) > 0) {
+   if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             if($row["universitet"] == $Universitet){
                 echo "<h2>Public Feed</h2>";
                 echo "<ul>";
-                    echo "<li>" . $Aktivitet_navn . "\t" . "<a href=\"info_om_aktivitet.php?aktivitet_id=$Aktivitet_id\"><button>Info om aktiviteten</button></a>" . "</li>";
+                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=$Aktivitet_id\"><button>" . $Aktivitet_navn . "</button></a>" . "</li>";
                 echo "</ul>";
             }
         }
