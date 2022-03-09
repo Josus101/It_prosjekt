@@ -23,7 +23,7 @@ CREATE TABLE Profile (
     universitet INTEGER UNSIGNED,
     alder INTEGER (120),
     kjoenn INTEGER, 
-    Fagområde VARCHAR(255),
+    fagomraade VARCHAR(255),
    --  interesser INTEGER UNSIGNED // Tror ikke at me trenge den her siden den e kobla opp te user_id
 );
 -- Kem e i hvilken gruppe
@@ -66,7 +66,7 @@ CREATE TABLE Aktiviteter (
    public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
    sted varchar(255),
    tidspunkt datetime,
-   sluttTispunkt datetime DEFAULT NULL,
-   maxFolk INTEGER DEFAULT NULL,
+   slutt_tispunkt datetime DEFAULT NULL,
+   max_folk INTEGER DEFAULT NULL,
    gruppe_id INTEGER DEFAULT NULL
 );
