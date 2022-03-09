@@ -38,7 +38,9 @@ include 'nav.html';
 <?php
 
 function publicfeed($id, $conn){
-    $sql_select="SELECT Aktiviteter.id AS Aktiv_id, Aktiviteter.navn AS Aktiv_navn 
+    $sql_select="SELECT Aktiviteter.id AS Aktiv_id, 
+                        Aktiviteter.navn AS Aktiv_navn, 
+                        profile.universitet AS Universitet
                 FROM Aktiviteter, 
                      Grupper, 
                      Interesser, 
@@ -50,16 +52,36 @@ function publicfeed($id, $conn){
                 AND Interesser_user.user_id = $id
                 AND Aktiviteter.public = 0
 
+
                 GROUP BY Aktiviteter.id
     ";
 
 
     $result = mysqli_query($conn, $sql_select);
 
-    if (mysqli_num_rows($result)) {
+    if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            echo $row["Aktiv_id"] . "\t";
-            echo $row["Aktiv_navn"];
+            $Aktivitet_id = $row["Aktiv_id"];
+            $Aktivitet_navn = $row["Aktiv_navn"];
+            $Universitet = $row["Universitet"];
+        }
+    }else {
+        echo "0 results";
+    }
+    $sql_select="SELECT profile.universitet AS universitet
+                FROM profile
+                WHERE profile.user_id = $id
+    ";
+    $result = mysqli_query($conn, $sql_select);
+
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            if($row["universitet"] == $Universitet){
+                echo "<h2>Public Feed</h2>";
+                echo "<ul>";
+                    echo "<li>" . $Aktivitet_navn . "\t" . "<a href=\"info_om_aktivitet.php?aktivitet_id=$Aktivitet_id\"><button>Info om aktiviteten</button></a>" . "</li>";
+                echo "</ul>";
+            }
         }
     }else {
         echo "0 results";
