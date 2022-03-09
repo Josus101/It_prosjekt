@@ -47,7 +47,7 @@ function publicfeed($id, $conn){
                 WHERE Aktiviteter.gruppe_id = Grupper.id 
                 AND Grupper.interesser = Interesser.id 
                 AND Interesser.id = Interesser_user.interesser_id 
-                AND Interesser_user.user_id = 1
+                AND Interesser_user.user_id = $id
                 AND Aktiviteter.public = 0
 
                 GROUP BY Aktiviteter.id
