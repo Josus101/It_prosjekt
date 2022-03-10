@@ -23,8 +23,7 @@ CREATE TABLE profile (
     universitet INTEGER UNSIGNED,
     alder INTEGER (120),
     kjoenn INTEGER, 
-    fagomraade VARCHAR(255),
-   --  interesser INTEGER UNSIGNED // Tror ikke at me trenge den her siden den e kobla opp te user_id
+    fagomraade VARCHAR(255)
 );
 -- Kem e i hvilken gruppe
 CREATE TABLE gruppe_users (
