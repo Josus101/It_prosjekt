@@ -1,27 +1,26 @@
 <?php
+    if isset ($_POST["name"]) {
+        $name = $_POST["name"];
+        $tlf = $_POST["tlf"];
+        $universitet = $_POST["universitet"];
+        $alder = $_POST["alder"];
+        $kjoenn = $_POST["kjoenn"];
+        $fagomraade = $_POST["fagomraade"];
+    }
 
-if isset ($_POST["name"]) {
-    $name = $_POST["name"];
-    $tlf = $_POST["tlf"];
-    $universitet = $_POST["universitet"];
-    $alder = $_POST["alder"];
-    $kjoenn = $_POST["kjoenn"];
-    $fagomraade = $_POST["fagomraade"];
-}
+    $sql_username = "root";
+    $sql_password = ""; // endre te "root" hvis du e på mac
+    $sql_server = "localhost";
+    $sql_database = "sosialt_nettverk";
 
-$sql_username = "root";
-$sql_password = ""; // endre te "root" hvis du e på mac
-$sql_server = "localhost";
-$sql_database = "sosialt_nettverk";
+    // Create connection
+    $conn = mysqli_connect($sql_server, $sql_username, $sql_password, $sql_database);
 
-// Create connection
-$conn = mysqli_connect($sql_server, $sql_username, $sql_password, $sql_database);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully";
 
 ?>
 <!DOCTYPE html>
