@@ -18,7 +18,7 @@
     }
     echo "Connected successfully";
 
-include 'nav.html';
+    include 'nav.html';
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +28,13 @@ include 'nav.html';
         <meta charset="UTF-8">
         <title>Hjemmeside</title>
     </head>
+<pre>
     <body>
-        <p><a href="profil.php"><button>Profil</button></a></p>
-        <p><a href="folk.php"><button>Folk</button></a></p>
-        <p><a href="logg_ut.php"><button>Logg Out</button></a></p>
-        <p>Her skal det komme en feed</p>
 <!-- Feed Algoritme -->
 
 <?php
 
-function publicfeed($id, $conn){
+function public_feed($id, $conn){
     $sql_select="SELECT aktiviteter.id AS Aktiv_id, 
                         aktiviteter.navn AS Aktiv_navn, 
                         profile.universitet AS Universitet
@@ -74,7 +71,7 @@ function publicfeed($id, $conn){
     ";
     $result = mysqli_query($conn, $sql_select);
 
-   if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             if($row["universitet"] == $Universitet){
                 echo "<h2>Public Feed</h2>";
@@ -88,33 +85,35 @@ function publicfeed($id, $conn){
     }
 }
 
-publicfeed($user_id, $conn);
+public_feed($user_id, $conn);
 
-/* function private_feed($id, $conn){
-    $sql_select="SELECT Aktiviteter.id AS Aktiv_id, Aktiviteter.navn AS Aktiv_navn 
-                FROM Aktiviteter, 
-                    Grupper,
-                    Gruppe_users, 
-                    profile 
-                WHERE Grupper.gruppe_id = Gruppe_users.gruppe_id
-                AND Gruppe_users.user_id = $id
-                AND Aktiviteter.gruppe_id = Grupper.gruppe_id 
-
+function private_feed($id, $conn){
+    $sql_select="SELECT aktiviteter.id AS Aktiv_id, aktiviteter.navn AS Aktiv_navn 
+                FROM aktiviteter, 
+                     grupper, 
+                     gruppe_users, 
+                     profile 
+                WHERE grupper.id = gruppe_users.gruppe_id 
+                AND gruppe_users.user_id = $id
+                AND aktiviteter.gruppe_id = grupper.id 
+                AND aktiviteter.public = 1 
                 GROUP BY Aktiviteter.id
     ";
-
-
     $result = mysqli_query($conn, $sql_select);
-
     if (mysqli_num_rows($result)) {
         while($row = mysqli_fetch_assoc($result)) {
-            echo $row["Aktiv_id"] . "\t";
-            echo $row["Aktiv_navn"];
+            echo "<h2>Home Feed</h2>";
+                echo "<ul>";
+                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=" . $row['Aktiv_id'] . "\"><button>" . $row['Aktiv_navn'] . "</button></a>" . "</li>";
+                echo "</ul>";
         }
     }else {
         echo "0 results";
     }
-} */
+}
+
+private_feed($user_id, $conn);
 ?>
     </body>
+</pre>
 </html>
