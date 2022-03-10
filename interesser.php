@@ -1,7 +1,13 @@
 <?php
-session_start();
-// $user_id = $_SESSION['user_id'];
-$user_id = 2;
+
+if isset ($_POST["name"]) {
+    $name = $_POST["name"];
+    $tlf = $_POST["tlf"];
+    $universitet = $_POST["universitet"];
+    $alder = $_POST["alder"];
+    $kjoenn = $_POST["kjoenn"];
+    $fagomraade = $_POST["fagomraade"];
+}
 
 $sql_username = "root";
 $sql_password = ""; // endre te "root" hvis du e på mac
@@ -13,7 +19,7 @@ $conn = mysqli_connect($sql_server, $sql_username, $sql_password, $sql_database)
 
 // Check connection
 if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 echo "Connected successfully";
 
@@ -37,9 +43,18 @@ echo "Connected successfully";
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<label><input type=\"checkbox\" name=\"$row[navn]\"> $row[navn]</label> <br>";
                     }
-                }else {
+                }
+                else {
                     echo "0 results";
                 }
+                echo "<input type=\"hidden\" id=\"name\" name=\"name\" value=\"$name\">;
+                echo "<input type=\"hidden\" id=\"tlf\" name=\"tlf\" value=\"$tlf\">;
+                echo "<input type=\"hidden\" id=\"universitet\" name=\"universitet\" value=\"$universitet\">;
+                echo "<input type=\"hidden\" id=\"alder\" name=\"alder\" value=\"$alder\">;
+                echo "<input type=\"hidden\" id=\"kjoenn\" name=\"kjoenn\" value=\"$kjoenn\">;
+                echo "<input type=\"hidden\" id=\"fagomraade\" name=\"fagomraade\" value=\"$fagomraade\">;
+                
+                
 
                 mysqli_close($conn);
             ?>
