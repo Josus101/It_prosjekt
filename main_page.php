@@ -38,22 +38,22 @@ include 'nav.html';
 <?php
 
 function publicfeed($id, $conn){
-    $sql_select="SELECT Aktiviteter.id AS Aktiv_id, 
-                        Aktiviteter.navn AS Aktiv_navn, 
+    $sql_select="SELECT aktiviteter.id AS Aktiv_id, 
+                        aktiviteter.navn AS Aktiv_navn, 
                         profile.universitet AS Universitet
-                FROM Aktiviteter, 
-                     Grupper, 
-                     Interesser, 
-                     Interesser_user, 
+                FROM aktiviteter, 
+                     grupper, 
+                     interesser, 
+                     interesser_user, 
                      profile 
-                WHERE Aktiviteter.gruppe_id = Grupper.id 
-                AND Grupper.interesser = Interesser.id 
-                AND Interesser.id = Interesser_user.interesser_id 
-                AND Interesser_user.user_id = $id
-                AND Aktiviteter.public = 0
+                WHERE aktiviteter.gruppe_id = grupper.id 
+                AND grupper.interesser = interesser.id 
+                AND interesser.id = interesser_user.interesser_id 
+                AND interesser_user.user_id = $id
+                AND aktiviteter.public = 0
 
 
-                GROUP BY Aktiviteter.id
+                GROUP BY aktiviteter.id
     ";
 
 
