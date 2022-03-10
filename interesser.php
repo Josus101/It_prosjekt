@@ -32,7 +32,7 @@ echo "Connected successfully";
         <title>Folk</title>
     </head>
     <body>
-        <form action = "login.html" method = "post">  
+        <form action = "create_acc.html" method = "post">  
             <?php
                 $sql_select = "SELECT navn FROM interesser";
 
