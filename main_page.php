@@ -89,6 +89,32 @@ function publicfeed($id, $conn){
 }
 
 publicfeed($user_id, $conn);
+
+/* function private_feed($id, $conn){
+    $sql_select="SELECT Aktiviteter.id AS Aktiv_id, Aktiviteter.navn AS Aktiv_navn 
+                FROM Aktiviteter, 
+                    Grupper,
+                    Gruppe_users, 
+                    profile 
+                WHERE Grupper.gruppe_id = Gruppe_users.gruppe_id
+                AND Gruppe_users.user_id = $id
+                AND Aktiviteter.gruppe_id = Grupper.gruppe_id 
+
+                GROUP BY Aktiviteter.id
+    ";
+
+
+    $result = mysqli_query($conn, $sql_select);
+
+    if (mysqli_num_rows($result)) {
+        while($row = mysqli_fetch_assoc($result)) {
+            echo $row["Aktiv_id"] . "\t";
+            echo $row["Aktiv_navn"];
+        }
+    }else {
+        echo "0 results";
+    }
+} */
 ?>
     </body>
 </html>
