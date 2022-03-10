@@ -46,14 +46,14 @@
                 else {
                     echo "0 results";
                 }
-                echo "<input type=\"hidden\" id=\"name\" name=\"name\" value=\"$name\">;
+                echo "<input type=\"hidden\" id=\"navn\" name=\"navn\" value=\"$navn\">;
+                echo "<input type=\"hidden\" id=\"user\" name=\"user\" value=\"$user\">;
+                echo "<input type=\"hidden\" id=\"passord\" name=\"passord\" value=\"$passord\">;
                 echo "<input type=\"hidden\" id=\"tlf\" name=\"tlf\" value=\"$tlf\">;
                 echo "<input type=\"hidden\" id=\"universitet\" name=\"universitet\" value=\"$universitet\">;
                 echo "<input type=\"hidden\" id=\"alder\" name=\"alder\" value=\"$alder\">;
                 echo "<input type=\"hidden\" id=\"kjoenn\" name=\"kjoenn\" value=\"$kjoenn\">;
                 echo "<input type=\"hidden\" id=\"fagomraade\" name=\"fagomraade\" value=\"$fagomraade\">;
-                
-                
 
                 mysqli_close($conn);
             ?>
