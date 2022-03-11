@@ -49,7 +49,7 @@
                 VALUES (\"$last_id\", \"$navn\", \"$tlf\", \"$universitet\", \"$alder\", \"$kjoenn\", \"$fagomraade\")";
         (mysqli_query($conn, $sql);
         
-        for ($i = 0; $i < count($interesserarray; $i++; ) {
+        for ($i = 0; $i < count($interesserarray; $i++) {
             if ($interesser[$i] == True) {
                 $index = array_search($interesser[$i], $interesser) + 1;
                 $sql = "INSERT INTO interesser_user (user_id, interesser_id) 
