@@ -43,14 +43,13 @@
                 VALUES (\"$user\", \"$passord\")";
         if (mysqli_query($conn, $sql)) {
             $last_id = mysqli_insert_id;
-        
         }
         
         $sql = "INSERT INTO profile (user_id, navn, tlf, universitet, alder, kjoenn, fagomraade) 
                 VALUES (\"$last_id\", \"$navn\", \"$tlf\", \"$universitet\", \"$alder\", \"$kjoenn\", \"$fagomraade\")";
         (mysqli_query($conn, $sql);
         
-        for ($i = 0; $i < count($interesserarray) {
+        for ($i = 0; $i < count($interesserarray; $i++; ) {
             if ($interesser[$i] == True) {
                 $index = array_search($interesser[$i], $interesser) + 1;
                 $sql = "INSERT INTO interesser_user (user_id, interesser_id) 
