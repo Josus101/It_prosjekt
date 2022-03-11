@@ -52,7 +52,7 @@
         
         for ($i = 0; $i < count($interesserarray) {
             if ($interesser[$i] == True) {
-                $index = array_search($interesser[$i], $interesser) + 1
+                $index = array_search($interesser[$i], $interesser) + 1;
                 $sql = "INSERT INTO interesser_user (user_id, interesser_id) 
-                VALUES($last_id, $index);
+                VALUES($last_id, $index)";
                 (mysqli_query($conn, $sql);
