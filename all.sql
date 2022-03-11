@@ -69,3 +69,8 @@ CREATE TABLE aktiviteter (
    max_folk INTEGER DEFAULT NULL,
    gruppe_id INTEGER DEFAULT NULL
 );
+-- kem som e med i ein aktivitet (akseptert invitasjonen)
+CREATE TABLE aktivitet_users (
+   aktivitet_id INTEGER UNSIGNED,
+   user_id INTEGER UNSIGNED
+);
