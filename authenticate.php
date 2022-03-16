@@ -8,10 +8,10 @@
         $user = $_POST["username"];
         $pass = $_POST["password"];
 
-        $sqlserver   = "localhost";
-        $sqlusername = "root";
-        $sqlpassword = "";
-        $sqldatabase = "sosialt_nettverk";
+        $sqlserver   = "mysql.elev.stolav.it";
+        $sqlusername = "stolav_universus";
+        $sqlpassword = "3mMiNv!n";
+        $sqldatabase = "stolav_universus";
 
         $conn = mysqli_connect($sqlserver, $sqlusername, $sqlpassword, $sqldatabase);
 
