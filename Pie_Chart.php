@@ -1,3 +1,9 @@
+<?php
+    $sql_server   = "mysql.elev.stolav.it";
+    $sql_username = "stolav_universus";
+    $sql_password = "3mMiNv!n";
+    $sql_database = "stolav_universus";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
