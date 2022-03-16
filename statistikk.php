@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "sosialt_nettverk";
+    $servername   = "mysql.elev.stolav.it";
+    $username = "stolav_universus";
+    $password = "3mMiNv!n";
+    $db = "stolav_universus";
     
     $conn = mysqli_connect($servername, $username, $password, $db);
     
