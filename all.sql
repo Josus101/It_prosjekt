@@ -50,7 +50,6 @@ CREATE TABLE aktiviteter_Grupper (
 CREATE TABLE interesser (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    navn varchar(100),
-   beskrivelse varchar(255)
 );
 
 -- interesser koblet te user id
