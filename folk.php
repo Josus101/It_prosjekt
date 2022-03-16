@@ -3,10 +3,10 @@ session_start();
 // $user_id = $_SESSION['user_id'];
 $user_id = 1;
 
-$sql_username = "root";
-$sql_password = ""; // endre te "root" hvis du e på mac
-$sql_server = "localhost";
-$sql_database = "sosialt_nettverk";
+$sqlserver   = "mysql.elev.stolav.it";
+$sqlusername = "stolav_universus";
+$sqlpassword = "3mMiNv!n";
+$sqldatabase = "stolav_universus";
 
 // Create connection
 $conn = mysqli_connect($sql_server, $sql_username, $sql_password, $sql_database);
