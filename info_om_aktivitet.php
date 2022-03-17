@@ -15,7 +15,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-include "nav.html";
+//include "nav.html";
 
 // $aktivitet_id = $_GET['aktivitet_id'];
 
@@ -33,10 +33,11 @@ $aktivitet_id = 1;
     <body>
 
         <?php
-            $sql = "SELECT navn, public, sted, tidspunkt, sluttTispunkt, maxFolk, gruppe_id, beskrivelse
+            $sql = "SELECT navn, public, sted, tidspunkt, maxFolk, gruppe_id, beskrivelse
             FROM Aktiviteter
             WHERE Aktiviteter.id = $aktivitet_id";
             $result = $conn->query($sql);
+            
             #$sqlUSER = "SELECT skaper FROM Aktiviteter WHERE Aktiviteter.id = $aktivitet_id";
             #$resultUSER = $conn->query($sqlUSER);
 
@@ -68,10 +69,11 @@ $aktivitet_id = 1;
                     echo "<h3>Beskrivelse</h3>";
                     echo "<article>" . $row["beskrivelse"] . "</article>";
                     
-                }
-            }
+                } 
+            } 
 
         ?>
+
         <!--
         <h2>Navn på aktiviteten</h2>
         <p><em>Bilde av aktivitet eller någe</em></p>
