@@ -10,7 +10,7 @@
         <p><a href="main_page.php"><button>Main Page</button></a></p> 
         <p><a href="dine_grupper.php"><button>Dine Grupper</button></a></p>
         <p><a href="aktiviteter.php"><button><b>Aktiviteter</b></button></a></p>
-        <p><a href="temp_folk.html"><button>Folk</button></a></p>
+        <p><a href="folk.html"><button>Folk</button></a></p>
     </nav>
     <br>
     <p>Dette er aktivitetene du er meldt på</p>
