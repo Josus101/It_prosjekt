@@ -15,7 +15,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-//include "nav.html";
+include "nav.html";
 
 // $aktivitet_id = $_GET['aktivitet_id'];
 
