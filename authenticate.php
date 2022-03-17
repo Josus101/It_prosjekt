@@ -28,6 +28,9 @@
 
         if ( mysqli_num_rows($result) == 1 ) {          
           $_SESSION["username"] = $user;
+          while($row = mysqli_fetch_assoc($result)) {
+            $_SESSION["user_id"] = $row["id"];
+          }
           echo "Login OK";
         }  
 
@@ -49,7 +52,7 @@
     <head>
         <title>Authenticate</title>
         <meta charset="utf-8">
-        <meta http-equiv="refresh" content="2; url='index.php'">
+        <meta http-equiv="refresh" content="2; url='main_page.php'">
     </head>
     <body>
     </body>
