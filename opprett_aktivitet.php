@@ -1,3 +1,23 @@
+<?php
+session_start();
+// Koble til databasen oppe her
+
+$sql_username = "root";
+$sql_password = "root"; // endre te "root" hvis du e på mac
+$sql_server = "localhost";
+$sql_database = "sosialt_nettverk";
+
+// Create connection
+$conn = mysqli_connect($sql_server, $sql_username, $sql_password, $sql_database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+include "nav.html";
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -5,24 +25,30 @@
         <meta charset="UTF-8">
         <title>Opprett aktivitet</title>
     </head>
+    <header><h2>Opprett aktivitet</h2></header>
     <body>
-        <h2>Opprett aktivitet</h2>
         <form action = "skapelsen.php" method = "post">
-                <label for = "tittel">Hva skal aktiviteten være?</label> <input id="tittel" name="tittel" type="text"> <br>
-            <label for = "bilde">Velg bilde:</label> <!-- Bilde er ikke i databasen i dette eksakte øyeblikk -->
-                <input type = "file" id = "bilde" name = "bilde" accept="image/*"> <br>
+                <label for = "tittel">Hva skal aktiviteten være?</label> <input id="tittel" name="tittel" type="text" required> <br>
+            <!--<label for = "bilde">Velg bilde:</label> Bilde er ikke i databasen i dette eksakte øyeblikk 
+                <input type = "file" id = "bilde" name = "bilde" accept="image/*"> <br> -->
             <label for = "public">Hvem skal kunne delta på aktiviteten?</label> <select name="public" id="public">
                 <option value = "0">Alle</option>
                 <option value = "1">Bare de i gruppen</option>
                 </select> <br>
             <label for = "sted">Hvor skal aktiviteten være?</label> 
-                <input id="sted" name="sted" type="text"> <br>
+                <input id="sted" name="sted" type="text" required> <br>
             <label for = "tidspunkt">Når skal aktiviteten finne sted?</label> 
-                <input id="tidspunkt" name="tidspunkt" type="datetime-local"> <br>
-            <label for = "sluttTidspunkt">Når skal aktiviteten eventuelt avsluttes</label> 
-                <input id="sluttTidspunkt" name="sluttTidspunkt" type="datetime-local"> <br>
-            <label for = "maxFolk">Hvor mange kan være med? La stå blank hvis det ikke skal være noen grense.</labeL>
-                <input type="number" id="maxFolk" name="maxFolk" min="3" max="200"> <br>
+                <input id="tidspunkt" name="tidspunkt" type="datetime-local" required> <br>
+            <label for = "maxFolk">Hvor mange kan være med?</labeL>
+                <select name="maxFolk" id="maxFolk"> 
+                    <option value = "10">Mindre enn eller lik 10</option>
+                    <option value = "20">Mindre enn eller lik 20</option>
+                    <option value = "30">Mindre enn eller lik 30</option>
+                    <option value = "40">Mindre enn eller lik 40</option>
+                    <option value = "200">Ubegrenset</option>
+                </select> <br>
+            <label for = "beskrivelse">Gi en kort beskrivelse av aktiviteten.</label> <br>
+                <textarea id="beskrivelse" name="beskrivelse" rows="10" cols="20" required></textarea> <br>
             <input type = "submit" value = "Opprett Aktivitet">
         </form>
     </body>
