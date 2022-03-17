@@ -9,8 +9,56 @@
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
+
+    include 'nav.html';
 ?>
 
+        
+<?php
+    function interesser_stats($conn){
+        echo "<svg width=\"200\" height=\"200\">";
+
+    $sql_select="SELECT COUNT(Interesser_user.user_id) AS count_users, interesser_user.interesser_id AS interesser_id
+                FROM Interesser_user
+                GROUP BY Interesser_id 
+    ";
+
+
+    $result = mysqli_query($conn, $sql_select);
+
+    $count_users = array();
+    $interesser_id = array();
+
+    if (mysqli_num_rows($result)) {
+        while($row = mysqli_fetch_assoc($result)) {
+            $c_u = $row["interesser_id"];
+            $i_i = $row["count_users"];
+
+            array_push($count_users, $i_i);
+            array_push($interesser_id , $c_u);
+        }
+    }else {
+        echo "0 results";
+    }
+
+    $max = max($count_users);
+    echo $max;
+    $antall = count($interesser_id);
+
+    for ($i=0; $i < $antall; $i++) { 
+        $w=100/$antall;
+        $h=$count_users[$i]/$max*100;
+        $x=$i*$w;
+        $y=100-$h;
+        
+        echo"<rect x=\"".$x."%\" y=\"".$y."%\" width=\"".$w."%\" height=\"".$h."%\" style=\"fill:rgb(255,0,0);stroke:rgb(0,0,0)\"/>";
+    }
+
+    echo "</svg>";
+    }
+    echo "INteressers popularitet";
+    interesser_stats($conn);
+?>
 <!DOCTYPE html>
 <html>
     <head>
