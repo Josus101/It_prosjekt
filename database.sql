@@ -1,5 +1,5 @@
 CREATE DATABASE universus_beta;
-USE universus_beta;
+USE universus_beta
 
 CREATE TABLE user (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -8,7 +8,7 @@ CREATE TABLE user (
 );
  
 CREATE TABLE folk_du_har_vert_med(
-   user_1_id INTEGERz,
+   user_1_id INTEGER,
    user_2_id INTEGER
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE interesser_user (
 CREATE TABLE aktiviteter (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    navn VARCHAR(255),
-   public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
+   public INTEGER,
    sted varchar(255),
    start_tidspunkt datetime DEFAULT NULL,
    slutt_tispunkt datetime DEFAULT NULL,
