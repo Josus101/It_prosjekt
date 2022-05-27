@@ -64,7 +64,7 @@ CREATE TABLE aktiviteter (
    navn VARCHAR(255),
    public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
    sted varchar(255),
-   start_tidspunkt datetime DEDAULT NULL,
+   start_tidspunkt datetime DEFAULT NULL,
    slutt_tispunkt datetime DEFAULT NULL,
    max_folk INTEGER DEFAULT NULL,
    gruppe_id INTEGER DEFAULT NULL
