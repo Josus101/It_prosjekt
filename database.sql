@@ -1,5 +1,5 @@
 --create database:
-CREATE DATABASE sosialt_nettverk;
+CREATE DATABASE universus_beta;
 USE sosialt_nettverk;
  
 --user:
@@ -41,7 +41,7 @@ CREATE TABLE grupper (
 );
 
 -- Forbindelse for flere aktiviteter i ein gruppe
-CREATE TABLE aktiviteter_Grupper (
+CREATE TABLE aktiviteter_grupper (
    gruppe_id INTEGER UNSIGNED,
    aktivitet_id INTEGER UNSIGNED
 );
