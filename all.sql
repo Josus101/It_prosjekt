@@ -23,7 +23,7 @@ CREATE TABLE profile (
     universitet INTEGER UNSIGNED,
     alder INTEGER (120),
     kjoenn INTEGER, 
-    fagomraade VARCHAR(255)
+    fagomraade int
 );
 -- Kem e i hvilken gruppe
 CREATE TABLE gruppe_users (
@@ -35,7 +35,7 @@ CREATE TABLE gruppe_users (
 CREATE TABLE grupper (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    navn varchar(50),
-   aktivitet varchar(255),
+   beskrivelse varchar(255),
    interesser INTEGER,
    universitet INTEGER UNSIGNED
 );
@@ -50,6 +50,7 @@ CREATE TABLE aktiviteter_Grupper (
 CREATE TABLE interesser (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    navn varchar(100),
+   beskrivelse text
 );
 
 -- interesser koblet te user id
@@ -63,7 +64,7 @@ CREATE TABLE aktiviteter (
    navn VARCHAR(255),
    public INTEGER, -- boolean fins desverre ikkje, så 0 betyr sann og 1 betyr usann
    sted varchar(255),
-   tidspunkt datetime,
+   start_tidspunkt datetime DEDAULT NULL,
    slutt_tispunkt datetime DEFAULT NULL,
    max_folk INTEGER DEFAULT NULL,
    gruppe_id INTEGER DEFAULT NULL
