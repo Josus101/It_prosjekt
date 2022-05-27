@@ -1,5 +1,5 @@
 CREATE DATABASE universus_beta;
-USE sosialt_nettverk;
+USE universus_beta;
 
 CREATE TABLE user (
    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
