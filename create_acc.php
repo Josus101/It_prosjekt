@@ -27,18 +27,14 @@
         else{
             echo "no work sadge";
         }
-        $sql = "INSERT INTO user (username, password) 
-                VALUES (\"$username\", \"$passord\")";
+        $sql = "INSERT INTO user (username, password, navn, tlf, universitet, alder, kjoenn, fagomraade) 
+                VALUES (\"$username\", \"$passord\", \"$navn\", $tlf, $universitet, $alder, $kjoenn, $fagomraade)";
         if (mysqli_query($conn, $sql)) {
             $last_id = mysqli_insert_id($conn);
         }
         else {
             echo "monkee";
         }
-        
-        $sql = "INSERT INTO profile (user_id, navn, tlf, universitet, alder, kjoenn, fagomraade) 
-                VALUES ($last_id, \"$navn\", $tlf, $universitet, $alder, $kjoenn, $fagomraade)";
-        
         for ($i = 0; $i < count($interesser); $i++) {
             $index = $i + 1;
             $sql = "INSERT INTO interesser_user (user_id, interesser_id) 
