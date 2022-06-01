@@ -47,9 +47,9 @@ function public_feed($id, $conn){
     }else {
         echo "0 public";
     }
-    $sql_select="SELECT profile.universitet AS universitet
-                FROM profile
-                WHERE profile.user_id = $id
+    $sql_select="SELECT user.universitet AS universitet
+                FROM user
+                WHERE user.user_id = $id
     ";
     $result = mysqli_query($conn, $sql_select);
 
