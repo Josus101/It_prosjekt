@@ -1,7 +1,6 @@
 <?php
 session_start();
-// $user_id = $_SESSION['user_id'];
-$user_id = 1;
+$user_id = $_SESSION['user_id'];
 
 require 'connect.php';
 
@@ -20,10 +19,10 @@ include 'nav.html';
 
 <?php
 
-$sql_select = "SELECT user_2_id, profile.name AS name
-FROM folk_du_har_vert_med, profile
+$sql_select = "SELECT user_2_id, user.name AS name
+FROM folk_du_har_vert_med, user
 WHERE folk_du_har_vert_med.user_1_id = $user_id
-AND profile.user_id = folk_du_har_vert_med.user_2_id";
+AND user.user_id = folk_du_har_vert_med.user_2_id";
 
 $result = mysqli_query($conn, $sql_select);
 
