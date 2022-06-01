@@ -1,13 +1,19 @@
 <?php
     require 'connect.php';
-
-    include 'nav.html';
+    include 'nav.php';
+    // colors:
+        //#2F2963
+        //#454372
+        //#70877F
+        //#C4A77D
+        //#EF946C
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Statistikk</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="stats_style.css">
     </head>
     <body>
 <?php
@@ -17,7 +23,10 @@
     }
     echo "Universus har $last_id brukere";
 ?>    
+        <br>
 <?php
+    $color = ["#5e4fa2", "#3288bd", "#66c2a5", "#abdda4", "#e6f598", "#fee08b", "#fdae61", "#f46d43", "#d53e4f", "#9e0142"];
+
     function interesser_stats($conn){
         echo "<svg width=\"200\" height=\"200\">";
 
@@ -74,7 +83,7 @@
     DESC
     ";
 
-    $values = [5, 3, 2];
+    $values = [];
 
     $result = mysqli_query($conn, $sql_select);
 
@@ -85,14 +94,7 @@
     }else {
         echo "0 results";
     }
-    
-    $color = [];
-    function rand_color() {
-        return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-    }
-    for ($i=0; $i < count($values); $i++) {
-        array_push($color, rand_color());
-    }
+
     $r = 100;
     $sum = array_sum($values);
     $ratio = 100 / $sum;
