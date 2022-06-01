@@ -39,29 +39,17 @@ function public_feed($id, $conn){
 
     $result = mysqli_query($conn, $sql_select);
 
+    echo "<h1>Public feed</h1>";
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $aktiv_id = $row["aktiv_id"];
             $aktiv_navn = $row["aktiv_navn"];
+            echo "<ul>";
+                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=$aktiv_id\"><button>" . $aktiv_navn . "</button></a>" . "</li>";
+            echo "</ul>";
         }
     }else {
         echo "0 public";
-    }
-    $sql_select="SELECT user.universitet AS universitet
-                FROM user
-                WHERE user.user_id = $id
-    ";
-    $result = mysqli_query($conn, $sql_select);
-
-    echo "<h2>Public Feed</h2>";
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-                echo "<ul>";
-                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=$aktiv_id\"><button>" . $aktiv_navn . "</button></a>" . "</li>";
-                echo "</ul>";
-        }
-    }else {
-        echo "0 results";
     }
 }
 
