@@ -1,4 +1,5 @@
 <?php
+$user_id = $_SESSION['user_id'];
 include 'nav.html';
 require 'connect.php';
 ?>
@@ -9,13 +10,24 @@ require 'connect.php';
     <title>Dine Grupper</title>
 </head>
 <body>
-    <p><a href="profil.php"><button>Profil</button></a></p>
     <p>gruppene dine:</p>
-    <!--sessions for å vita group id-->
-    <p><a href="Gruppe.php"><button>Gruppe 1</button></a></p>
-    <p><a href="Gruppe.php"><button>Gruppe 2</button></a></p>
-    <p><a href="Gruppe.php"><button>Gruppe 3</button></a></p>
-    <p><a href="Gruppe.php"><button>Gruppe 4</button></a></p>
-    <p><a href="Gruppe.php"><button>Gruppe 5</button></a></p>
+<?php
+$sql = "SELECT grupper.id AS gruppe_id, grupper.name AS gruppe_name
+        FROM grupper, gruppe_users
+        WHERE gruppe_id = gruppe_users.user_id
+        AND gruppe_users.user_id = $user_id";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<a href=\"gruppe.php?id=". $row['gruppe_id'] ."\"><button>". $row['gruppe_name'] ."</button></a> <br>";
+    }
+}else {
+
+}
+?>    
+
+    
 </body>
 </html>
