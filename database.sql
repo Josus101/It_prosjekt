@@ -1,19 +1,12 @@
-CREATE DATABASE universus_beta;
-USE universus_beta
-
-CREATE TABLE user (
-   id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-   username VARCHAR(50),
-   password VARCHAR(50)
-);
- 
 CREATE TABLE folk_du_har_vert_med(
    user_1_id INTEGER,
    user_2_id INTEGER
 );
 
 CREATE TABLE profile (
-    user_id INTEGER UNSIGNED,
+    id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255),
+    password VARCHAR(255),
     navn VARCHAR(255),
     tlf INTEGER(8),
     universitet INTEGER UNSIGNED,
