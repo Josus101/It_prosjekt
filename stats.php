@@ -67,10 +67,10 @@
 
 <svg height="200" width="200">
     <?php
-    $sql_select="SELECT COUNT(Interesser_user.user_id) AS count_users, interesser_user.interesser_id AS interesser_id
-    FROM Interesser_user
-    GROUP BY Interesser_id
-    ORDER BY Interesser_id
+    $sql_select="SELECT COUNT(interesser_user.user_id) AS count_users, interesser_user.interesser_id AS interesser_id
+    FROM interesser_user
+    GROUP BY interesser_id
+    ORDER BY interesser_id
     DESC
     ";
 
