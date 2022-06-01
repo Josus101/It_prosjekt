@@ -4,8 +4,7 @@
     print_r($_SESSION);
 
     require 'connect.php';
-
-include 'nav.html';
+    include 'nav.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,17 +17,29 @@ include 'nav.html';
     <br>
     <p>Dette er aktivitetene du er meldt på</p>
     <br>
-    <!--bruker POST for å gi info siden id til aktiviteten-->
     <form action="info_om_aktivitet.php">
-        <input type="submit" value="aktivitet 1">
-        <br>
-        <input type="submit" value="aktivitet 2">
-        <br>
-        <input type="submit" value="aktivitet 3">
-        <br>
-        <input type="submit" value="aktivitet 4">
-        <br>
-        <input type="submit" value="aktivitet 5">
+<?php
+    $sql = "SELECT aktiviteter.id AS id, aktiviteter.navn AS navn
+    FROM aktiviteter,
+    aktivitet_users
+    WHERE aktivitet_users.user_id = 1
+    AND aktiviteter.id = aktivitet_users.aktivitet_id";
+    
+    $result = mysqli_query($conn, $sql);
+
+    echo "<h1>Public feed</h1>";
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            $id = $row["id"];
+            $navn = $row["navn"];
+            echo "<ul>";
+                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=$id\"><button>" . $navn . "</button></a>" . "</li>";
+            echo "</ul>";
+        }
+    }else {
+        echo "0 public";
+    }
+?>
     </form>
 </body>
 </html>
