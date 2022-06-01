@@ -18,7 +18,7 @@ require 'connect.php';
             <input type="text" id="username" name="username" required> <br>
 
             <label for="passord">Passord:</label>
-            <input type="passord" id="passord" name="passord" required> <br>
+            <input type="password" id="passord" name="passord" required> <br>
 
             <label for="tlf">Telefonnummer:</label>
             <input type="number" id="tlf" name="tlf" required> <br>
