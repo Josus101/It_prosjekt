@@ -25,7 +25,7 @@ $sql = "SELECT  aktiviteter.id AS id,
                 aktiviteter.slutt_tidspunkt AS slutt_tidspunkt, 
                 aktiviteter.max_folk AS max_folk
         FROM aktiviteter, aktiviteter_grupper
-        WHERE id = aktiviteter_grupper.aktivitet_id
+        WHERE aktiviteter.id = aktiviteter_grupper.aktivitet_id
         AND aktiviteter_grupper.gruppe_id = $gruppe_id       
         ";
 $result = mysqli_query($conn, $sql);
@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "Starter: ". $row['start_tidspunkt'] . " Slutter: ". $row['slutt_tidspunkt'] . "\n";
         echo "Sted: " . $row['sted'] . "\n";
         echo "Max antall folk: " . $row['max_folk'] . "\n";
-        echo "<a href=\"aksepter_aktivitet.php?id=". $row['id'] ."\"><button>Aksepter</button></a>\n\n\n";
+        echo "<a href=\"info_om_aktivitet.php?aktivitet_id=". $row['id'] ."\"><button>Aksepter</button></a>\n\n\n";
     }
 }else {
     echo "no work";
