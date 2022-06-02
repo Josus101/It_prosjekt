@@ -2,7 +2,7 @@
 
     session_start();
 
-
+    $login = false;
     if ( isset( $_POST["username"] ) && isset( $_POST["password"] ) ) {
         $user = $_POST["username"];
         $pass = $_POST["password"];
@@ -20,15 +20,14 @@
                 $_SESSION["user_id"] = $row["id"];
             }
             echo "Login OK";
-        }  
-
-        else {
+            $login = true;
+        }else {
           session_destroy();
           echo "Login failed";
         }
     }
 
-  else {
+    else{
         session_destroy();
         echo "Login failed!";
     }
@@ -40,7 +39,14 @@
     <head>
         <title>Authenticate</title>
         <meta charset="utf-8">
-        <meta http-equiv="refresh" content="0; url='main_page.php'">
+<?php
+if($login){
+    echo "<meta http-equiv=\"refresh\" content=\"2; url='main_page.php'\">";
+}
+else{
+    echo "<meta http-equiv=\"refresh\" content=\"2; url='main_page.php'\">";
+}
+?>
     </head>
     <body>
     </body>
