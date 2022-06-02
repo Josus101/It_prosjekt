@@ -17,7 +17,6 @@
     <br>
     <p>Dette er aktivitetene du er meldt på</p>
     <br>
-    <form action="info_om_aktivitet.php">
 <?php
     $sql = "SELECT aktiviteter.id AS id, aktiviteter.navn AS navn
     FROM aktiviteter,
@@ -32,9 +31,10 @@
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $id = $row["id"];
+            var_dump($id);
             $navn = $row["navn"];
             echo "<ul>";
-                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=$id\"><button>" . $navn . "</button></a>" . "</li>";
+                    echo "<li> <a href=\"info_om_aktivitet.php?aktivitet_id=" . $id . "\"><button>" . $navn . "</button></a>" . "</li>";
             echo "</ul>";
         }
     }else {
