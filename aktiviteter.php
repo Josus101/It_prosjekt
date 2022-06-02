@@ -22,12 +22,13 @@
     $sql = "SELECT aktiviteter.id AS id, aktiviteter.navn AS navn
     FROM aktiviteter,
     aktivitet_users
-    WHERE aktivitet_users.user_id = 1
-    AND aktiviteter.id = aktivitet_users.aktivitet_id";
+    WHERE aktivitet_users.user_id = $user_id
+    AND aktiviteter.id = aktivitet_users.aktivitet_id
+    ORDER BY aktiviteter.start_tidspunkt ASC";
     
     $result = mysqli_query($conn, $sql);
 
-    echo "<h1>Public feed</h1>";
+    echo "<h1>Dine aktiviteter</h1>";
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $id = $row["id"];
