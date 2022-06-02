@@ -1,6 +1,10 @@
 <?php
     require 'connect.php';
     include 'nav.php';
+    // colors:
+        //#F4FAFF
+        //#312F2F
+        //#2a729e
 ?>
 <!DOCTYPE html>
 <html>
