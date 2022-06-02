@@ -21,8 +21,7 @@
 <?php
     $color = ["#5e4fa2", "#3288bd", "#66c2a5", "#abdda4", "#e6f598", "#fee08b", "#fdae61", "#f46d43", "#d53e4f", "#9e0142"];
 
-    function interesser_stats($conn){
-        echo "<svg width=\"200\" height=\"200\">";
+    echo "<svg width=\"200\" height=\"200\">";
 
     $sql_select="SELECT COUNT(Interesser_user.user_id) AS count_users, interesser_user.interesser_id AS interesser_id
                 FROM interesser_user
@@ -41,7 +40,7 @@
         while($row = mysqli_fetch_assoc($result)) {
             $c_u = $row["interesser_id"];
             $i_i = $row["count_users"];
-
+ 
             array_push($count_users, $i_i);
             array_push($interesser_id , $c_u);
         }
@@ -58,14 +57,12 @@
         $h=$count_users[$i]/$max*100;
         $x=$i*$w;
         $y=100-$h;
-        
-        echo"<rect x=\"".$x."%\" y=\"".$y."%\" width=\"".$w."%\" height=\"".$h."%\" style=\"fill:rgb(255,0,0);stroke:rgb(0,0,0)\"/>";
+        echo"<rect x=\"".$x."%\" y=\"".$y."%\" width=\"".$w."%\" height=\"".$h."%\" style=\"fill:" . $color[$i] . ";stroke:" . $color[$i] . "\"/>";
     }
 
+    echo "<rect x=\"0\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:none; stroke: #000000\"/>";
     echo "</svg>";
-    }
     echo "Interessers popularitet";
-    interesser_stats($conn);
 ?>
 
 <svg height="200" width="200">
