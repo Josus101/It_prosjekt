@@ -2,7 +2,7 @@
 session_start();
 $user_id = $_SESSION['user_id'];
 
-include 'nav.html';
+include 'nav.php';
 require 'connect.php';
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ require 'connect.php';
 <body>
     <p>gruppene dine:</p>
 <?php
-$sql = "SELECT grupper.id AS gruppe_id, grupper.name AS gruppe_name
+$sql = "SELECT grupper.id AS gruppe_id, grupper.navn AS gruppe_name
         FROM grupper, gruppe_users
         WHERE gruppe_id = gruppe_users.user_id
         AND gruppe_users.user_id = $user_id";
