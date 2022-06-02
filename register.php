@@ -26,7 +26,7 @@ require 'connect.php';
             <label for="universitet">Universitet:</label>
             <select name="universitet" id="universitet">
 <?php
-$sql = "SELECT id, navn FROM universitet";
+$sql = "SELECT id, navn FROM universiteter";
 $result = mysqli_query($conn, $sql);
 
 if ( mysqli_num_rows($result) > 0) {          
@@ -56,12 +56,12 @@ else{
             <label for="fagomraade">Fagområde:</label>
             <select name="fagomraade" id="fagomraade">
 <?php
-$sql = "SELECT id, fagomraade FROM fagomraade";
+$sql = "SELECT id, navn FROM fagomraade";
 $result = mysqli_query($conn, $sql);
 
 if ( mysqli_num_rows($result) > 0) {          
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<option value=\"". $row["id"] ."\">". $row["fagomraade"] ."</option>";
+        echo "<option value=\"". $row["id"] ."\">". $row["navn"] ."</option>";
     }
 }  
 else{
