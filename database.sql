@@ -3,7 +3,7 @@ CREATE TABLE folk_du_har_vert_med(
    user_2_id INTEGER
 );
 
-CREATE TABLE profile (
+CREATE TABLE user (
     id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255),
     password VARCHAR(255),
